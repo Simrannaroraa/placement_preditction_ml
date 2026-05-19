@@ -8,7 +8,7 @@ st.set_page_config(
     page_title="Campus Placement Predictor",
     page_icon="🎓",
     layout="centered",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="expanded",
 )
 
 # ── Custom CSS ─────────────────────────────────────────────────────────────────
@@ -27,7 +27,8 @@ html, body, [class*="css"] {
 }
 
 /* Hide default streamlit elements */
-#MainMenu, footer, header { visibility: hidden; }
+#MainMenu, footer { visibility: hidden; }
+header { background: transparent !important; }
 .block-container { padding-top: 2rem; padding-bottom: 3rem; }
 
 /* Hero banner */
@@ -122,7 +123,7 @@ html, body, [class*="css"] {
 }
 
 /* Streamlit widget overrides */
-div[data-testid="stSelectbox"] > div, 
+div[data-testid="stSelectbox"] > div,
 div[data-testid="stNumberInput"] input,
 div[data-testid="stTextInput"] input,
 div[data-testid="stSlider"] {
@@ -152,6 +153,25 @@ div[data-testid="stButton"] button:hover {
 }
 
 label { color: #b0b8cc !important; font-size: 0.9rem !important; }
+
+/* Sidebar nav styling */
+[data-testid="stSidebarNav"] a {
+    font-family: 'Syne', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    color: #b0b8cc !important;
+}
+[data-testid="stSidebarNav"] a:hover,
+[data-testid="stSidebarNav"] a[aria-current="page"] {
+    color: #f5c842 !important;
+}
+[data-testid="stSidebarNav"] {
+    background: #0d0f14 !important;
+}
+section[data-testid="stSidebar"] {
+    background: #0d0f14 !important;
+    border-right: 1px solid #1e2330 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -212,7 +232,7 @@ with col1:
     name = st.text_input("Your Name", placeholder="e.g. Arjun Sharma")
 with col2:
     cgpa = st.number_input("CGPA (out of 10)", min_value=0.0, max_value=10.0,
-                           value=7.5, step=0.1, format="%.1f")
+                       value=7.5, step=0.1, format="%.1f")
 
 st.markdown('<div class="section-label">Academic & Project Profile</div>', unsafe_allow_html=True)
 col3, col4, col5 = st.columns(3)
