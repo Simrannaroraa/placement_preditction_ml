@@ -24,6 +24,8 @@ Campus placement is a critical milestone for students and educational institutio
 1. **Placement Probability**: Whether a student is likely to be placed.
 2. **Expected Salary**: The potential salary for placed students.
 
+Additionally, the project features an interactive **Analytics Dashboard** to explore and visualize insights from past student records, highlighting trends in placements, salaries, and academic factors.
+
 By analyzing academic performance, skills, and other relevant features, the project provides actionable insights to improve placement outcomes.
 
 ---
@@ -60,7 +62,8 @@ Follow these steps to set up and run the project locally:
 ---
 
 ## 🗂️ Project Structure
-- `app.py`: Main Streamlit application.
+- `app.py`: Main Streamlit application (Placement Predictor).
+- `pages/dashboard.py`: Interactive Analytics Dashboard page.
 - `model.pkl`: Placement prediction model.
 - `model1.pkl`: Salary prediction model.
 - `Placement_prediction_data.csv`: Dataset for placement prediction.
@@ -115,10 +118,9 @@ The models were evaluated using the following metrics:
 ---
 
 ## 🚀 Streamlit App
-The trained models are deployed using a Streamlit application. The app provides an interactive interface for users to:
-1. Input student details.
-2. Predict placement probability.
-3. Estimate expected salary.
+The trained models are deployed using a multi-page Streamlit application. The app provides an interactive interface featuring:
+1. **Placement Predictor**: Input student details to predict placement probability and estimate expected salary.
+2. **Analytics Dashboard**: Explore comprehensive visualizations (via Plotly) showing trends like placement rates by CGPA, salary distributions, and the impact of internships or hackathons.
 
 ### Run the App:
 ```bash
